@@ -1,6 +1,6 @@
 // src/App.jsx
 import React, { useState, useEffect } from "react";
-import { Container, Typography } from "@mui/material";
+import { Container, Typography, Box } from "@mui/material";
 import axios from "axios";
 import SearchField from "./components/SearchField";
 import CurrentWeather from "./components/CurrentWeather";
@@ -78,21 +78,39 @@ const App = () => {
     return Object.values(days).slice(0, 4);
   };
 
+
+
   return (
-    <Container maxWidth="sm">
-      <Typography variant="h4" gutterBottom align="center">
-        Weather App
-      </Typography>
-      <SearchField
-        city={city}
-        setCity={setCity}
-        fetchWeatherByCity={fetchWeatherByCity}
-        suggestions={suggestions}
-        fetchCitySuggestions={fetchCitySuggestions}
-      />
-      {weather && <CurrentWeather weather={weather} />}
-      {forecast.length > 0 && <Forecast forecast={forecast} />}
-    </Container>
+    <Box
+      sx={{
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        minHeight: '100vh',
+        bgcolor: '#f5f5f5',
+      }}
+    >
+      <Box
+        sx={{
+          width: '100%',
+          maxWidth: 600,
+          px: 2,
+        }}
+      >
+        <Typography variant="h4" gutterBottom align="center">
+          Weather App
+        </Typography>
+        <SearchField
+          city={city}
+          setCity={setCity}
+          fetchWeatherByCity={fetchWeatherByCity}
+          suggestions={suggestions}
+          fetchCitySuggestions={fetchCitySuggestions}
+        />
+        {weather && <CurrentWeather weather={weather} />}
+        {forecast.length > 0 && <Forecast forecast={forecast} />}
+      </Box>
+    </Box>
   );
 };
 
