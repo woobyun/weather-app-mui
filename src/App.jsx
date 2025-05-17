@@ -14,7 +14,7 @@ const App = () => {
   const [suggestions, setSuggestions] = useState([]);
   const apiKey = import.meta.env.VITE_OPENWEATHER_API_KEY;
 
-  console.log("API Key:", apiKey);
+  console.log ("API Key:", apiKey);
 
   useEffect(() => {
     navigator.geolocation.getCurrentPosition(
